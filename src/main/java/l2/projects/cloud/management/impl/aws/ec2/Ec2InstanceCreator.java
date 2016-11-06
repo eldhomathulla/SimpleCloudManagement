@@ -11,9 +11,9 @@ import com.amazonaws.services.ec2.model.RunInstancesRequest;
 import com.amazonaws.services.ec2.model.RunInstancesResult;
 
 import l2.projects.cloud.management.exceptions.TaskExecutionException;
+import l2.projects.cloud.management.exceptions.VirtualIntanceCreationException;
 import l2.projects.cloud.management.inteface.VirtualInstance;
 import l2.projects.cloud.management.inteface.VirtualInstanceCreator;
-import l2.projects.cloud.management.inteface.VirtualIntanceCreationException;
 import l2.projects.cloud.management.utils.InstanceProperties;
 import l2.projects.cloud.management.utils.TaskExecutor;
 
@@ -55,7 +55,7 @@ public class Ec2InstanceCreator implements VirtualInstanceCreator {
 			try {
 				return taskExecutor.executeTask(() -> {
 					if (instance.getState().getCode() == Ec2Instance.INSTANCE_RUNNING_STATUS_CODE) {
-						return (VirtualInstance) new Ec2Instance(amazonEC2Client, instance);
+						return (VirtualInstance) new Ec2Instance(amazonEC2Client, instance, instanceProperties);
 					} else {
 						return null;
 					}

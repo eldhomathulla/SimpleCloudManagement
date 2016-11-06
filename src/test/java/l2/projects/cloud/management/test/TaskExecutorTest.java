@@ -1,4 +1,4 @@
-package l2.projects.cloud.management.test.ec2;
+package l2.projects.cloud.management.test;
 
 import static org.junit.Assert.*;
 

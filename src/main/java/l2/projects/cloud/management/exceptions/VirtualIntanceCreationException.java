@@ -1,4 +1,4 @@
-package l2.projects.cloud.management.inteface;
+package l2.projects.cloud.management.exceptions;
 
 public class VirtualIntanceCreationException extends RuntimeException {
 

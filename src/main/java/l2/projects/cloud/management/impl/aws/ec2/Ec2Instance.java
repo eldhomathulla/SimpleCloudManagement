@@ -12,15 +12,17 @@ import com.amazonaws.services.ec2.model.StopInstancesResult;
 import com.amazonaws.services.ec2.model.TerminateInstancesRequest;
 import com.amazonaws.services.ec2.model.TerminateInstancesResult;
 
+import l2.projects.cloud.management.exceptions.VirtualInstanceException;
 import l2.projects.cloud.management.inteface.IP;
 import l2.projects.cloud.management.inteface.VirtualInstance;
-import l2.projects.cloud.management.inteface.VirtualInstanceException;
+import l2.projects.cloud.management.utils.InstanceProperties;
 import l2.projects.cloud.management.utils.TaskExecutor;
 
 public class Ec2Instance implements VirtualInstance {
 
 	private Instance instance;
 	private AmazonEC2Client amazonEC2Client;
+	private InstanceProperties instanceProperties;
 	private long instanceStartupTimeOut = 20 * 60 * 1000;
 	private long instanceShutdownTimeOut = 15 * 60 * 1000;
 	private long instanceTerminationTimeOut = instanceStartupTimeOut;
@@ -29,9 +31,10 @@ public class Ec2Instance implements VirtualInstance {
 	public static final int INSTANCE_STOP_STATUS_CODE = 80;
 	public static final int INSTANCE_TERMINATION_STATUS_CODE = 48;
 
-	public Ec2Instance(AmazonEC2Client amazonEC2Client, Instance instance) {
+	public Ec2Instance(AmazonEC2Client amazonEC2Client, Instance instance, InstanceProperties instanceProperties) {
 		this.amazonEC2Client = amazonEC2Client;
 		this.instance = instance;
+		this.instanceProperties = instanceProperties;
 	}
 
 	@Override
@@ -105,6 +108,11 @@ public class Ec2Instance implements VirtualInstance {
 	public String getPublicIPAddress(IP ipVersion) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public InstanceProperties getInstanceProperties() {
+		return instanceProperties;
 	}
 
 }
