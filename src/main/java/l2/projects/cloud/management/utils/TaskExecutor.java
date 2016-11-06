@@ -6,6 +6,8 @@ import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import l2.projects.cloud.management.exceptions.TaskExecutionException;
+
 public class TaskExecutor {
 
 	private static final Logger LOGGER = Logger.getGlobal();

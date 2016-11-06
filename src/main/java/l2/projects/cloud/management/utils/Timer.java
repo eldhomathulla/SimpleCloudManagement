@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import l2.projects.cloud.management.exceptions.TimerException;
+
 public class Timer implements Runnable {
 	private long startTime = -1;
 	private TimeUnit durationTimeUnit = TimeUnit.SECONDS;
@@ -54,7 +56,7 @@ public class Timer implements Runnable {
 		}
 	}
 
-	private static long convertToMilliSeconds(long time, TimeUnit timeUnit) {
+	public static long convertToMilliSeconds(long time, TimeUnit timeUnit) {
 		switch (timeUnit) {
 		case SECONDS:
 			return time * 1000;
@@ -114,7 +116,7 @@ public class Timer implements Runnable {
 	}
 
 	private Optional<Thread> getTimerThread() {
-		return Optional.of(timerThread);
+		return Optional.ofNullable(timerThread);
 	}
 
 	public TimeUnit getIntevalTimeUnit() {

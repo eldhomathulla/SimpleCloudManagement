@@ -12,6 +12,7 @@ import com.amazonaws.services.ec2.model.StopInstancesResult;
 import com.amazonaws.services.ec2.model.TerminateInstancesRequest;
 import com.amazonaws.services.ec2.model.TerminateInstancesResult;
 
+import l2.projects.cloud.management.inteface.IP;
 import l2.projects.cloud.management.inteface.VirtualInstance;
 import l2.projects.cloud.management.inteface.VirtualInstanceException;
 import l2.projects.cloud.management.utils.TaskExecutor;
@@ -95,25 +96,13 @@ public class Ec2Instance implements VirtualInstance {
 	}
 
 	@Override
-	public String getPrivateIPv4Address() {
+	public String getPrivateIPAddress(IP ipVersion) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getPublicIPv4Address() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getPrivateIPv6Address() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getPublicIPv6Address() {
+	public String getPublicIPAddress(IP ipVersion) {
 		// TODO Auto-generated method stub
 		return null;
 	}

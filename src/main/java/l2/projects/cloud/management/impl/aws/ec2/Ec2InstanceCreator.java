@@ -10,11 +10,11 @@ import com.amazonaws.services.ec2.model.Instance;
 import com.amazonaws.services.ec2.model.RunInstancesRequest;
 import com.amazonaws.services.ec2.model.RunInstancesResult;
 
+import l2.projects.cloud.management.exceptions.TaskExecutionException;
 import l2.projects.cloud.management.inteface.VirtualInstance;
 import l2.projects.cloud.management.inteface.VirtualInstanceCreator;
 import l2.projects.cloud.management.inteface.VirtualIntanceCreationException;
 import l2.projects.cloud.management.utils.InstanceProperties;
-import l2.projects.cloud.management.utils.TaskExecutionException;
 import l2.projects.cloud.management.utils.TaskExecutor;
 
 public class Ec2InstanceCreator implements VirtualInstanceCreator {
