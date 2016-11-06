@@ -1,4 +1,4 @@
-package l2.projects.cloud.management.utils;
+package l2.projects.cloud.management.exceptions;
 
 public class TaskExecutionException extends Exception {
 
